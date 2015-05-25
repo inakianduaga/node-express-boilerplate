@@ -26,18 +26,39 @@ gulp.task('lint', 'Runs a typescript linter on the application code', function (
     
 });
 
+
+/**
+ * Create typescript project build reference for incremental compilation under watch tasks
+ * 
+ * @link https://github.com/ivogabe/gulp-typescript
+ */
+var tsProject = $.typescript.createProject('tsconfig.json', {
+  // Override package version of typescript to use latest compiler version
+  typescript: require('typescript')
+});
+
+
 /**
  * Compiles typescript app into js
  */
-gulp.task('compile', 'Compiles the typescript code into js', ['clean'], function () {
+gulp.task('build', 'Compiles the typescript code into js', ['precopy'], function () {
 
-  // Override package version of typescript to use latest compiler version
-  var options = { typescript: require('typescript') };
-
-  var tsProject = $.typescript.createProject('tsconfig.json', options),
-    tsResult = tsProject.src() // instead of gulp.src(...)  
+  var tsResult = tsProject.src() // instead of gulp.src(...)  
       .pipe($.typescript(tsProject, undefined, $.typescript.reporter.longReporter()));
 
-  return tsResult.js.pipe(gulp.dest('dist'));
+  return tsResult.js
+    // Strip '/src' prefix from path
+    .pipe($.rename(function (path) {
+      path.dirname = path.dirname.substring('src'.length);
+    }))  
+    .pipe(gulp.dest('dist'));
 });
 
+
+/**
+ * Precopies all non-ts files into the dist folder
+ */
+gulp.task('precopy', ['clean'], function () {
+  return gulp.src(['src/**/*', '!src/**/*.ts'])
+    .pipe(gulp.dest('dist'));
+})
