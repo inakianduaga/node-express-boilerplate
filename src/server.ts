@@ -1,12 +1,12 @@
 'use strict';
 
 // Load environment variables
-var dotenv = require('dotenv');
+import dotenv = require('dotenv');
 dotenv.load();
 
 // Boot server
-var debug = require('debug')('server');
-var app = require('./app');
+import debug = require('debug');
+import app = require('./app');
 
 app.set('port', process.env.PORT || 3000);
 

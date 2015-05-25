@@ -7,4 +7,4 @@ import exampleController = require('../controllers/example');
 var router = express.Router();
 router.get('/', exampleController.healthCheck);
 
-module.exports = router;
+export = router;

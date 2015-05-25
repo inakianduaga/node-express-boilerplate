@@ -14,7 +14,7 @@ import exampleRoute = require('./routes/example');
 import errorHandler = require('./services/errorHandler');
 
 // Main app
-app = express();
+var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,7 +32,7 @@ app.use(exampleRoute);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
-    res.status = 404;
+    res.status(404);
     next(err);
 });
 
@@ -46,4 +46,4 @@ if (app.get('env') === 'development') {
   app.use(errorHandler.production);
 }
 
-module.exports = app;
+export = app;

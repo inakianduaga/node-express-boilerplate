@@ -14,12 +14,4 @@ Watch tasks to trigger app recompilation, syncs development server.
 
 ## server.js
 
-Contains browsersync-ready development server 
-
-## release.js
-
-Tasks to publish the application to aws S3 
-- Configuration credentials must be filled in `/aws/config.json`
-
-
-
+Contains browsersync-ready development server
