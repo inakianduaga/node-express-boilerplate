@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     }),
     environment = require('./lib/environment.js');
 
-gulp.task('serve', 'Launch the server on development mode, autoreloads it when there are code changes', ['build', 'precopy', 'clean'], function () {
+gulp.task('serve', 'Launch the server on development mode, autoreloads it when there are code changes', ['build'], function () {
 
   var nodemonConfiguration = {
     script: './dist/server.js',
