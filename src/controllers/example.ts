@@ -1,15 +1,17 @@
 'use strict';
 
 /**
- * Miscellaneous controller
+ * Example controller that provides a healthcheck endpoint
  */
-module.exports = {
-
+module Controllers.Example {
+  
   /*
    * Return an empty 200 response
    */
-  healthCheck: function (req, res) {
+  export function healthCheck (req, res) {
     res.end();
   }
+  
+}
 
-};
+export = Controllers.Example;

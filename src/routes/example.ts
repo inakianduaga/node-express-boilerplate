@@ -1,11 +1,10 @@
 'use strict';
 
 // Test routes
+import express = require('express');
+import exampleController = require('../controllers/example');
 
-var express = require('express'),
-    router = express.Router(),
-    exampleController = require('./../controllers/example');
-
+var router = express.Router();
 router.get('/', exampleController.healthCheck);
 
 module.exports = router;
