@@ -6,14 +6,10 @@ var gulp = require('gulp'),
     pattern: ['gulp-*', 'concurrent-transform', 'del', 'q']
   });
   $.fs = require('fs');
-  $.environment = require('./lib/environment.js');
-  $.AWS = require('aws-sdk');
+  $.environment = require('./lib/environment.js');  
 
 //CLI parameters
 var VERSION_TYPE = $.environment.get('version', 'minor');
-
-//AWS credentials
-var credentials = require('./aws/config.json');
 
 /**
  * Reads the package.json file

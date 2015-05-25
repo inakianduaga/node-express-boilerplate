@@ -1,6 +1,6 @@
 'use strict';
 
-//-- Error handler service
+// Error handler service
 
 module Services.ErrorHandler {
 
@@ -14,18 +14,18 @@ module Services.ErrorHandler {
    * @param {Boolean=} includeStackTrace Whether to include a stack trace in the generated response
    */
   var handler = function(err, req, res, next, includeStackTrace) {
-  
+
     if (typeof includeStackTrace === 'undefined') {
       includeStackTrace = false;
     }
-  
+
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
       error:   includeStackTrace ? err : {}
     });
   };
-  
+
   /**
    * 500 error development response
    *
@@ -37,7 +37,7 @@ module Services.ErrorHandler {
   export function development (err, req, res, next) {
     return handler(err, req, res, next, true);
   };
-  
+
   /**
    * 500 error production response
    *
@@ -49,7 +49,7 @@ module Services.ErrorHandler {
   export function production (err, req, res, next) {
     return handler(err, req, res, next, false);
   };
-    
+
 }
 
 export = Services.ErrorHandler;

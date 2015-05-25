@@ -1,10 +1,10 @@
 'use strict';
 
-//Load environment variables
+// Load environment variables
 var dotenv = require('dotenv');
 dotenv.load();
 
-//Boot server
+// Boot server
 var debug = require('debug')('server');
 var app = require('./app');
 

@@ -2,14 +2,26 @@
 
 //Dependencies
 var gulp = require('gulp'),
-    $ = require('gulp-load-plugins')({
-      pattern: ['gulp-*']
-    }),
-    buildSubprocesses = require('./lib/buildSubprocesses');
+  $ = require('gulp-load-plugins')({
+    pattern: ['gulp-*']
+  });    
 
+gulp.task('lint', 'Runs a typescript linter on the application code', function() {
 
-gulp.task('lint', 'Jshints through the application code', function() {
-
-  return gulp.src(['**/*.js', '!./node_modules', '!./node_modules/**/*', '!./gulp/**/*']).pipe(buildSubprocesses.js.lintJS()());
+  var options = {
+      configuration: {},
+      rulesDirectory: null,
+      emitError: true,
+      reportLimit: 0
+  };
+  
+  var sources = [
+    './src/**/*.ts',
+    './gulp/**/*.ts'
+  ];
+  
+  return gulp.src(sources)
+    .pipe($.tslint(options))
+    .pipe($.tslint.report('prose')); 
 
 });

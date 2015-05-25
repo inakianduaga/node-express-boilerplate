@@ -28,6 +28,9 @@
     },
     "serve-favicon/serve-favicon.d.ts": {
       "commit": "c2b70ba731a485968fa3e0561a32652f59787015"
+    },
+    "debug/debug.d.ts": {
+      "commit": "c2b70ba731a485968fa3e0561a32652f59787015"
     }
   }
 }

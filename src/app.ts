@@ -1,20 +1,19 @@
 'use strict';
 
-//Include dependencies
+// Include dependencies
 import express = require('express');
 import path = require('path');
-import favicon = require('serve-favicon');
 import logger = require('morgan');
 import cookieParser = require('cookie-parser');
 import bodyParser = require('body-parser');
 
-//Modular Route definitions
+// Modular Route definitions
 import exampleRoute = require('./routes/example');
 
-//Error handler service
+// Error handler service
 import errorHandler = require('./services/errorHandler');
 
-//Main app
+// Main app
 app = express();
 
 // view engine setup
@@ -25,9 +24,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public'))); //serve public files
+// app.use(express.static(path.join(__dirname, 'public'))); //serve public files
 
-//Register routes (as middleware layer through express.Router())
+// Register routes (as middleware layer through express.Router())
 app.use(exampleRoute);
 
 // catch 404 and forward to error handler
