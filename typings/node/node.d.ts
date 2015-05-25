@@ -252,7 +252,6 @@ declare module NodeJS {
         setTimeout: (callback: (...args: any[]) => void, ms: number, ...args: any[]) => NodeJS.Timer;
         undefined: typeof undefined;
         unescape: (str: string) => string;    
-        gc: () => void;
     }
 
     export interface Timer {
@@ -341,7 +340,6 @@ declare module "http" {
 
     export interface Server extends events.EventEmitter {
         listen(port: number, hostname?: string, backlog?: number, callback?: Function): Server;
-        listen(port: number, hostname?: string, callback?: Function): Server;
         listen(path: string, callback?: Function): Server;
         listen(handle: any, listeningListener?: Function): Server;
         close(cb?: any): Server;

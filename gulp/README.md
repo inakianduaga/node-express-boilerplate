@@ -2,11 +2,13 @@
 
 Task are separated by topic 
 
+## Config.json
+
+Contains configuration options for different tasks
+
 ## build.js
 
-Builds the application 
-- uses dependencies in the `/lib` subfolder
-- asset js vendor libraries are defined in the `/assets` subfolder
+Build & build-related tasks
 
 ## watch.js
 
