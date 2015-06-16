@@ -31,7 +31,7 @@ gulp.task('watch', 'Master watch task, adds cumulative watches (test/lint)', ['t
  */
 gulp.task('watchAndServe', 'Launch the server on development mode, autoreloads it when there are code changes, plus registers cumulative watch task', ['watch', 'serve'], function(){}, {
   options: {
-    'port': 'The port # the server should listen to. Defaults to 3000'
+    'port': 'The port # the server should listen to. Defaults to value specified in .env file under PORT, or 3000 if .env not present'
   }
 });
 
