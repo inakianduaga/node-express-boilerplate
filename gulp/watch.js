@@ -17,7 +17,7 @@ gulp.task('tsWatcher', false, function () {
  * Watches for non-ts files
  */
 gulp.task('nonTsWatcher', false, function () {
-  gulp.watch(['src/**/*', '!src/**/*.ts'], ['copyNonTs']);
+  gulp.watch(['src/.env','src/**/*', '!src/**/*.ts'], ['copyNonTs']);
 });
 
 /**

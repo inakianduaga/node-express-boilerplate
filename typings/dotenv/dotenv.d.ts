@@ -5,13 +5,15 @@
 declare module "dotenv" {
 
   function load(options?: {
-    path: string,
-    encoding: string
+    path?: string,
+    encoding?: string,
+    silent?: Boolean
   }) : Boolean;
 
   function config(options?: {
-    path: string,
-    encoding: string
+    path?: string,
+    encoding?: string,
+    silent?: Boolean
   }) : Boolean;
   
   function parse(src: any): Object;
