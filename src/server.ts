@@ -14,7 +14,7 @@ import app = require('./app');
 var port = process.env.PORT || 3000;
 app.set('port', port);
 
-var server = app.listen(app.get('port'), function() {
+app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + port);
 }).on('error', function(err) {
   console.log('Cannot start server, port most likely in use');

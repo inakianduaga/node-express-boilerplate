@@ -51,9 +51,10 @@
     "gulp-nodemon" : "^2.0.3",
     "gulp-tar" : "^1.4.0",
     "gulp-gzip" : "^1.1.0",
-    "jasmine-node" : "2.0.0-beta4",
+    "jasmine" : "^2.3.1",
     "gulp-rename": "^1.2.2",
-    "run-sequence": "^1.1.0"
+    "run-sequence": "^1.1.0",
+    "supertest" : "^1.0.1"
   },
   "engines": {
     "node": ">=0.10.0"

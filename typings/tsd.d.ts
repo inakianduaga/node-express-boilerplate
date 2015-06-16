@@ -9,3 +9,5 @@
 /// <reference path="serve-favicon/serve-favicon.d.ts" />
 /// <reference path="debug/debug.d.ts" />
 /// <reference path="dotenv/dotenv.d.ts" />
+/// <reference path="supertest/supertest.d.ts" />
+/// <reference path="superagent/superagent.d.ts" />

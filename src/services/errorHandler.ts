@@ -19,7 +19,7 @@ module Services.ErrorHandler {
       includeStackTrace = false;
     }
 
-    res.status(err.status || 500);
+    res.status(res.statusCode || 500);
     res.render('error', {
       message: err.message,
       error:   includeStackTrace ? err : {}

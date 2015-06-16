@@ -1,3 +1,5 @@
+/// <reference path="../typings/tsd.d.ts" />
+
 'use strict';
 
 // Include dependencies
@@ -35,7 +37,8 @@ app.use(exampleRoute);
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     res.status(404);
-    next(err);
+    console.log('catching 404 error');
+    return next(err);
 });
 
 // error handlers
