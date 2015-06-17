@@ -15,5 +15,3 @@ jasmine.loadConfigFile('src/spec/support/jasmine.json');
 gulp.task('test', 'Run unit tests (once)', ['build'], function () {   
   return jasmine.execute();
 });
-
-

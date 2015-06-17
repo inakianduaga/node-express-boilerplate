@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 
 gulp.task('tdd', 'Runs unit tests when file changes are detected', function () {
-  gulp.watch('src/**/*.js', ['test']);
+  gulp.watch('dist/**/*.js', ['test']);
 });
 
 /**
