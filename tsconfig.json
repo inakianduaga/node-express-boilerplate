@@ -1,0 +1,17 @@
+{
+    "version" : "1.5.0-beta",
+    "compilerOptions": {
+        "target" : "es5",
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "outDir": "dist",
+        "sourceMap": true
+    },
+    "files": [
+        "src/**/*.ts",
+        "typings/**/*.ts",
+        "gulp/**/*.ts"
+    ]
+}
