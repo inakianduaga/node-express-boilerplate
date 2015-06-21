@@ -1,5 +1,9 @@
-# node-express-boilerplate
-A typescript nodejs express boilerplate server, w/ gulp as build system 
+node-express-boilerplate
+=====================
+
+[![Build Status][travis-image]][travis-url]
+
+> A typescript nodejs express boilerplate server, w/ gulp as build system 
 
 ## Why
 
@@ -27,3 +31,6 @@ Several gulp tasks are provided:
 - typescript linting/compiling tasks (watch/watchAndServe/lint/tdd) 
 - server application + autorestart it when code changes (through [nodemon](https://www.npmjs.com/package/nodemon))
 - run tests    
+
+[travis-url]: https://travis-ci.org/inakianduaga/node-express-boilerplate
+[travis-image]: https://travis-ci.org/inakianduaga/node-express-boilerplate.svg?branch=master
