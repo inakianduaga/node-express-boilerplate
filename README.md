@@ -30,7 +30,7 @@ Several gulp tasks are provided:
  
 - typescript linting/compiling tasks (watch/watchAndServe/lint/tdd) 
 - server application + autorestart it when code changes (through [nodemon](https://www.npmjs.com/package/nodemon))
-- run tests    
+- run tests (currently jasmine + supertest included as examples)   
 
 [travis-url]: https://travis-ci.org/inakianduaga/node-express-boilerplate
 [travis-image]: https://travis-ci.org/inakianduaga/node-express-boilerplate.svg?branch=master
