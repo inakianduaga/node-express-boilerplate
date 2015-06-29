@@ -5,7 +5,9 @@ var gulp = require('gulp'),
   $ = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'del', 'run-sequence']
   }),
-  config = require('./config.json');    
+  config = require('./config.json'),
+  tsConfig = require('../tsconfig.json');
+      
 
 /**
  * Create typescript project build reference for incremental compilation under watch tasks
@@ -47,15 +49,11 @@ gulp.task('lint', 'Runs a typescript linter on the application code', function (
  * Compiles typescript app into js
  */
 gulp.task('compile', false, function () {
-
-  var tsResult = tsProject.src() // instead of gulp.src(...)  
+  
+  var tsResult = gulp.src(tsConfig.files)  
       .pipe($.typescript(tsProject, undefined, $.typescript.reporter.longReporter()));
 
   return tsResult.js
-    // Strip '/src' prefix from path
-    .pipe($.rename(function (path) {
-      path.dirname = path.dirname.substring('src'.length);
-    }))  
     .pipe(gulp.dest('dist'));
 });
 

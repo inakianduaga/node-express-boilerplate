@@ -7,8 +7,8 @@
       "reportLimit": 0
     },
     "sources": [
-     "./src/**/*.ts",
-     "./gulp/**/*.ts"
+      "./src/**/*.ts",
+      "./gulp/**/*.ts"
     ],
     "reporter" : "prose"
   },
