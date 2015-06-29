@@ -3,7 +3,7 @@ node_js:
   - "0.10"
   - "0.12"
   - "iojs"
-#before_install: npm install -g gulp
+before_install: npm install -g gulp
 install: npm install
-before_script: ./node_modules/gulp/bin/gulp.js lint
-script: ./node_modules/gulp/bin/gulp.js test
+before_script: gulp lint
+script: gulp test
