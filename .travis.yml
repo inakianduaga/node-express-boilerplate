@@ -16,4 +16,6 @@ deploy:
   skip_cleanup: true
   on:
     repo: inakianduaga/node-express-boilerplate
-    branch: master
+    tags: true
+    all_branches: true
+    node: '0.12'
