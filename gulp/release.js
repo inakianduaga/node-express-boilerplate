@@ -60,3 +60,17 @@ gulp.task('release', 'Bumps package version, tags release & pushes the current b
   }
 });
 
+
+gulp.task('package', 'Builds and zips the application', ['build'], function () {
+
+  return gulp.src(['dist/**/*'])
+
+    //Tar all files into single
+    .pipe($.tar('release.tar'))
+
+    //Compress tarball
+    .pipe($.gzip())
+
+    //Write file to tmp folder
+    .pipe(gulp.dest('tmp'));
+});

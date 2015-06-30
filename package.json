@@ -1,7 +1,7 @@
 {
   "name": "node-express-boilerplate",
   "description": "A typescript nodejs express boilerplate server, w/ gulp as the build system",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/inakianduaga/node-express-boilerplate",
   "private": true,
   "author": {
@@ -52,8 +52,8 @@
     "gulp-nodemon": "^2.0.3",
     "gulp-tar": "^1.4.0",
     "gulp-gzip": "^1.1.0",
-    "jasmine": "^2.3.1",
     "gulp-rename": "^1.2.2",
+    "jasmine": "^2.3.1",
     "run-sequence": "^1.1.0",
     "supertest": "^1.0.1"
   },
