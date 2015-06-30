@@ -1,9 +1,19 @@
 language: node_js
 node_js:
-  - "0.10"
-  - "0.12"
-  - "iojs"
+- '0.10'
+- '0.12'
+- iojs
 before_install: npm install -g gulp
 install: npm install
 before_script: gulp lint
 script: gulp test
+before_deploy: gulp package
+deploy:
+  provider: releases
+  api_key:
+    secure: EKx6wzCi33BYrmohVFy6Op7O4uRKQyKCRuEacksMsq9NEsfVM9p3581AG55UjOTJsou0wTo+S0EnRRBSb3eXCo9cp4soYDMYKM256b1tTpOi2/eWnxmoWSjNojof2y9Q8btxied+J26V1aQbq5lLZvx4yoqPAn1EaG3GoKawNOK3cYmYYyWg+/iD5PGpCTIzMDIe914NIQqiNpntI1cunsJ0IbuiTlhEvJH/iJmVOgr60CwKlwSaVLLT1dQgdXrj3CZrnY0uktvIEC6jiu5qgTF5uLMxJP7EpgkSYFW20yIxE6eyjWklYx2qwMkfpI8lCJw89eBUboETrMo8mpEx0VX9n5kkXNF0syMygiyX0l78cRq8QfAJWSXWYk5cHvtaFbYeabafKcJl9tQq2U5weRxcOs6PF6mEUd7GRPreTvC5epgjGEdAJ4K+mr1e9rGHS7OcR6cndfyR5mNx55r5rhRaXbX/bnqFYga6MhkvX+T3BxKucZkoL6TUQEAE/Ze1xm0aS0jly3D8dNaR5EnoGYO5hR9rBh3Nl5afj04XzzvR8QrD16YnKvRAQk7c5acVciWZxNTrnETEKuR+q6qB9YzDACd5h+go3QEMk7OfGgX8h8f66Ve7SxD+rxwrQxwE0Oz6Yle5v+c08ePWq2hG3dLTBsNtXrEGTa57PmAILog=
+  file: tmp/release.tar.gz
+  skip_cleanup: true
+  on:
+    repo: inakianduaga/node-express-boilerplate
+    branch: master

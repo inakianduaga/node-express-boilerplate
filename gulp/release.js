@@ -20,21 +20,7 @@ function getPackageJson() {
   return JSON.parse($.fs.readFileSync('./package.json', 'utf-8'));
 }
 
-gulp.task('checkoutMasterBranch', false, ['lint', 'test'], function() {
-
-  return $.git.revParse({args:'--abbrev-ref HEAD'}, function(err, currentBranch) {
-
-    if(currentBranch !== 'master') {
-      $.git.checkout('master', function(err){
-        $.util.log(err);
-      });
-    }
-
-  });
-
-});
-
-gulp.task('bump', false, ['checkoutMasterBranch'], function() {
+gulp.task('bump', false, ['lint', 'test'], function() {
 
   return gulp.src(['./package.json', './bower.json'])
     .pipe($.bump({ type: VERSION_TYPE}))
@@ -54,8 +40,7 @@ gulp.task('commit', false, ['bump'], function() {
 
 });
 
-
-gulp.task('release', 'Bumps version, tags release using new version and pushes changes to git origin repo', ['commit'], function () {
+gulp.task('release', 'Bumps package version, tags release & pushes the current branch to the origin repo', ['commit'], function () {
 
   var pkg = getPackageJson();
   var v = 'v' + pkg.version;
@@ -64,7 +49,8 @@ gulp.task('release', 'Bumps version, tags release using new version and pushes c
   $.git.tag(v, message, function(err){
     if (err) throw err;
   });
-  $.git.push('origin', 'master', {args: ' --tags'}, function(err){
+
+  $.git.push('origin', 'HEAD', { args: ' --tags' }, function (err) {
     if (err) throw err;
   });
 
@@ -74,3 +60,17 @@ gulp.task('release', 'Bumps version, tags release using new version and pushes c
   }
 });
 
+
+gulp.task('package', 'Builds and zips the application', ['build'], function () {
+
+  return gulp.src(['dist/**/*'])
+
+    //Tar all files into single
+    .pipe($.tar('release.tar'))
+
+    //Compress tarball
+    .pipe($.gzip())
+
+    //Write file to tmp folder
+    .pipe(gulp.dest('tmp'));
+});
