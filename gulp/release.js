@@ -50,7 +50,7 @@ gulp.task('release', 'Bumps package version & tags release', ['commit'], functio
     if (err) throw err;
   });
 
-  $.git.push('origin', '', { args: ' --tags' }, function (err) {
+  $.git.push('origin', 'HEAD', { args: ' --tags' }, function (err) {
     if (err) throw err;
   });
 
