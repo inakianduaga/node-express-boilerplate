@@ -40,7 +40,7 @@ gulp.task('commit', false, ['bump'], function() {
 
 });
 
-gulp.task('release', 'Bumps package version & tags release', ['commit'], function () {
+gulp.task('release', 'Bumps package version, tags release & pushes the current branch to the origin repo', ['commit'], function () {
 
   var pkg = getPackageJson();
   var v = 'v' + pkg.version;
