@@ -1,7 +1,7 @@
 {
   "name": "node-express-boilerplate",
   "description": "A typescript nodejs express boilerplate server, w/ gulp as the build system",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/inakianduaga/node-express-boilerplate",
   "private": true,
   "author": {
