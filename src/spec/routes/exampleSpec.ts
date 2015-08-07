@@ -6,13 +6,13 @@
 import request = require('supertest');
 import app = require('./../../app');
 
-describe('Example routes', function() {
+describe('Jasmine: Example routes', () => {
 
-  it('should get 200 response from healthCheck', function(done) {
+  it('should get 200 response from healthCheck', done => {
     request(app)
       .get('/')
       .expect(200)
-      .end(function(err, res) {
+      .end( (err, res) => {
         if (err) {
           done.fail(err);
         } else {
@@ -21,11 +21,11 @@ describe('Example routes', function() {
       });
   });
 
-  it('should get 404 from unknown route', function(done) {
+  it('should get 404 from unknown route', done => {
     request(app)
       .get('/asodkoasd9923942ik3koadskoaksda9isd')
       .expect(404)
-      .end(function(err, res) {
+      .end( (err, res) => {
         if (err) {
           done.fail(err);
         } else {

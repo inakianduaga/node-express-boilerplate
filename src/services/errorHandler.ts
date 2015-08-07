@@ -13,7 +13,7 @@ module Services.ErrorHandler {
    * @param next
    * @param {Boolean=} includeStackTrace Whether to include a stack trace in the generated response
    */
-  var handler = function(err, req, res, next, includeStackTrace) {
+  let handler = (err, req, res, next, includeStackTrace) => {
 
     if (typeof includeStackTrace === 'undefined') {
       includeStackTrace = false;
