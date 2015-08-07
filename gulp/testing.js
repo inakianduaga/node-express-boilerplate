@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 // Configure Jasmine
 jasmine.loadConfigFile('src/spec/support/jasmine.json');
 
-gulp.task('jasmineTests', null, ['build'], function () {   
+gulp.task('jasmineTests', false, ['build'], function () {   
   var deferred = $.q.defer();
 
   jasmine.onComplete(function (err) {
@@ -26,7 +26,7 @@ gulp.task('jasmineTests', null, ['build'], function () {
 
 
 // Mocha tests  
-gulp.task('mochaTests', null, ['build'], function () {   
+gulp.task('mochaTests', false, ['build'], function () {   
   return gulp.src('dist/spec/routes/exampleMochaSpec.js', {read: false})
       // gulp-mocha needs filepaths so you can't have any plugins before it
       .pipe($.mocha({reporter: 'nyan'}));
