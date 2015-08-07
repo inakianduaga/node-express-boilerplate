@@ -6,7 +6,7 @@
 import request = require('supertest');
 import app = require('./../../app');
 
-describe('Example routes', function() {
+describe('Jasmine: Example routes', function() {
 
   it('should get 200 response from healthCheck', function(done) {
     request(app)
