@@ -44,23 +44,25 @@ You can either run the project installing dependencies locally, or run a dockeri
 
 - Node must be installed on the system
 - Run `npm install` from the root folder to install all required dev/build dependencies
-- (Optionally) Install Typescript definitions manager `npm install tsd -g` globally to update typescript definitions
+- (Optionally) Install *Typescript definitions manager (tsd)* `npm install tsd -g` globally to update typescript definitions when desired
 
 ### Docker
 
 You can use the included Dockerfile to build an image that provides node and npm installed by default, and points
- to the `gulp` command as the entrypoint. You can build the docker image by running
+ to the `gulp` command as the entrypoint. You can follow these steps
 
-1. Build docker file: `docker build -t node-express-boilerplate`
+1. Build the docker image, w/ some tag: `docker build -t node-express-boilerplate`
 2. Install npm dependencies if starting from scratch
-  `docker run -t --rm -v /absolute/path/to/this/folder:/app --entrypoint="npm" node-express-boilerplate install`
+  `docker run -t --rm -v /absolute/path/to/this/folder:/app --entrypoint="npm" node-express-boilerplate install`.
+  
+  You can also replace *install* by *ANY_NPM_COMMMAND* in the above
 3. Run any gulp task from the project:
   `docker run -t --rm -v /absolute/path/to/this/folder:/app node-express-boilerplate <GULP_TASK_HERE>`
 
-The docker container includes the *TypeScript Definition manager for DefinitelyTyped* node package pre-installed, which you can run through
+The docker container includes the *tsd* node package pre-installed, which you can run through
   `docker run -t --rm -v /absolute/path/to/this/folder:/app --entrypoint="tsd" node-express-boilerplate <TSD_COMMAND_HERE>`
 
-#### Launching server on docker
+##### Launching server on docker
 
 Remember to map the port from the host to the container to be able to access the server.
 
