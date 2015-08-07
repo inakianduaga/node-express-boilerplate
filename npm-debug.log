@@ -1,0 +1,206 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.40
+4 verbose node symlink /usr/bin/node
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/var/nodeExpressBoilerplate',
+6 verbose install   [ 'express',
+6 verbose install     'body-parser',
+6 verbose install     'cookie-parser',
+6 verbose install     'serve-favicon',
+6 verbose install     'morgan',
+6 verbose install     'jade',
+6 verbose install     'debug',
+6 verbose install     'dotenv',
+6 verbose install     'gulp',
+6 verbose install     'gulp-typescript',
+6 verbose install     'typescript',
+6 verbose install     'tsd',
+6 verbose install     'gulp-tslint',
+6 verbose install     'gulp-load-plugins',
+6 verbose install     'gulp-help',
+6 verbose install     'require-dir',
+6 verbose install     'del',
+6 verbose install     'minimist',
+6 verbose install     'q',
+6 verbose install     'gulp-notify',
+6 verbose install     'gulp-filter',
+6 verbose install     'gulp-git',
+6 verbose install     'gulp-bump',
+6 verbose install     'gulp-shell',
+6 verbose install     'gulp-nodemon',
+6 verbose install     'gulp-tar',
+6 verbose install     'gulp-gzip',
+6 verbose install     'gulp-rename',
+6 verbose install     'jasmine',
+6 verbose install     'run-sequence',
+6 verbose install     'supertest' ] ]
+7 info preinstall node-express-boilerplate@0.2.1
+8 verbose readDependencies using package.json deps
+9 verbose already installed skipping debug@^2.2.0 /var/nodeExpressBoilerplate
+10 verbose already installed skipping dotenv@^1.1.0 /var/nodeExpressBoilerplate
+11 verbose already installed skipping gulp@^3.8.11 /var/nodeExpressBoilerplate
+12 verbose already installed skipping gulp-typescript@^2.7.8 /var/nodeExpressBoilerplate
+13 verbose cache add [ 'typescript@^1.5.3', null ]
+14 verbose cache add name=undefined spec="typescript@^1.5.3" args=["typescript@^1.5.3",null]
+15 verbose parsed url { protocol: null,
+15 verbose parsed url   slashes: null,
+15 verbose parsed url   auth: null,
+15 verbose parsed url   host: null,
+15 verbose parsed url   port: null,
+15 verbose parsed url   hostname: null,
+15 verbose parsed url   hash: null,
+15 verbose parsed url   search: null,
+15 verbose parsed url   query: null,
+15 verbose parsed url   pathname: 'typescript@^1.5.3',
+15 verbose parsed url   path: 'typescript@^1.5.3',
+15 verbose parsed url   href: 'typescript@^1.5.3' }
+16 verbose already installed skipping tsd@^0.6.0 /var/nodeExpressBoilerplate
+17 verbose already installed skipping gulp-tslint@^3.0.1-beta /var/nodeExpressBoilerplate
+18 verbose cache add name="typescript" spec="^1.5.3" args=["typescript","^1.5.3"]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: '^1.5.3',
+19 verbose parsed url   path: '^1.5.3',
+19 verbose parsed url   href: '^1.5.3' }
+20 verbose addNamed [ 'typescript', '^1.5.3' ]
+21 verbose addNamed [ null, '>=1.5.3-0 <2.0.0-0' ]
+22 verbose already installed skipping gulp-load-plugins@^0.10.0 /var/nodeExpressBoilerplate
+23 silly lockFile 8f854bc6-typescript-1-5-3 typescript@^1.5.3
+24 verbose lock typescript@^1.5.3 /home/enje/.npm/8f854bc6-typescript-1-5-3.lock
+25 verbose already installed skipping gulp-help@^1.3.4 /var/nodeExpressBoilerplate
+26 silly addNameRange { name: 'typescript',
+26 silly addNameRange   range: '>=1.5.3-0 <2.0.0-0',
+26 silly addNameRange   hasData: false }
+27 verbose already installed skipping require-dir@^0.3.0 /var/nodeExpressBoilerplate
+28 verbose already installed skipping del@^1.2.0 /var/nodeExpressBoilerplate
+29 verbose already installed skipping minimist@^1.1.1 /var/nodeExpressBoilerplate
+30 verbose already installed skipping q@^1.4.1 /var/nodeExpressBoilerplate
+31 verbose request where is /typescript
+32 verbose request registry https://registry.npmjs.org/
+33 verbose request id 895bd51b91517281
+34 verbose url raw /typescript
+35 verbose url resolving [ 'https://registry.npmjs.org/', './typescript' ]
+36 verbose url resolved https://registry.npmjs.org/typescript
+37 verbose request where is https://registry.npmjs.org/typescript
+38 info trying registry request attempt 1 at 20:22:54
+39 verbose etag "1FJRGLNQY31MIG83BVX3E16I7"
+40 http GET https://registry.npmjs.org/typescript
+41 verbose already installed skipping gulp-notify@^2.2.0 /var/nodeExpressBoilerplate
+42 verbose already installed skipping gulp-filter@^2.0.2 /var/nodeExpressBoilerplate
+43 verbose already installed skipping gulp-git@^1.2.4 /var/nodeExpressBoilerplate
+44 verbose already installed skipping gulp-bump@^0.3.1 /var/nodeExpressBoilerplate
+45 verbose already installed skipping gulp-shell@^0.2.11 /var/nodeExpressBoilerplate
+46 verbose already installed skipping gulp-nodemon@^2.0.3 /var/nodeExpressBoilerplate
+47 verbose already installed skipping gulp-tar@^1.4.0 /var/nodeExpressBoilerplate
+48 verbose already installed skipping gulp-gzip@^1.1.0 /var/nodeExpressBoilerplate
+49 verbose already installed skipping gulp-rename@^1.2.2 /var/nodeExpressBoilerplate
+50 verbose already installed skipping jasmine@^2.3.1 /var/nodeExpressBoilerplate
+51 verbose already installed skipping run-sequence@^1.1.0 /var/nodeExpressBoilerplate
+52 verbose already installed skipping supertest@^1.0.1 /var/nodeExpressBoilerplate
+53 verbose already installed skipping express@^4.12.4 /var/nodeExpressBoilerplate
+54 verbose already installed skipping body-parser@^1.12.4 /var/nodeExpressBoilerplate
+55 verbose already installed skipping cookie-parser@^1.3.5 /var/nodeExpressBoilerplate
+56 verbose already installed skipping serve-favicon@~2.1.3 /var/nodeExpressBoilerplate
+57 verbose already installed skipping morgan@^1.5.3 /var/nodeExpressBoilerplate
+58 verbose already installed skipping jade@^1.9.2 /var/nodeExpressBoilerplate
+59 http 200 https://registry.npmjs.org/typescript
+60 silly registry.get cb [ 200,
+60 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+60 silly registry.get     etag: '"8UF6CXAU8BSB8535UHODNQDQ1"',
+60 silly registry.get     'content-type': 'application/json',
+60 silly registry.get     'cache-control': 'max-age=60',
+60 silly registry.get     'content-length': '50530',
+60 silly registry.get     'accept-ranges': 'bytes',
+60 silly registry.get     date: 'Fri, 07 Aug 2015 18:22:54 GMT',
+60 silly registry.get     via: '1.1 varnish',
+60 silly registry.get     age: '0',
+60 silly registry.get     connection: 'keep-alive',
+60 silly registry.get     'x-served-by': 'cache-fra1226-FRA',
+60 silly registry.get     'x-cache': 'HIT',
+60 silly registry.get     'x-cache-hits': '1',
+60 silly registry.get     'x-timer': 'S1438971774.796735,VS0,VE99',
+60 silly registry.get     vary: 'Accept' } ]
+61 silly addNameRange number 2 { name: 'typescript',
+61 silly addNameRange   range: '>=1.5.3-0 <2.0.0-0',
+61 silly addNameRange   hasData: true }
+62 silly addNameRange versions [ 'typescript',
+62 silly addNameRange   [ '0.8.0',
+62 silly addNameRange     '0.8.1',
+62 silly addNameRange     '0.8.1-1',
+62 silly addNameRange     '0.8.2',
+62 silly addNameRange     '0.8.3',
+62 silly addNameRange     '0.9.0',
+62 silly addNameRange     '0.9.0-1',
+62 silly addNameRange     '0.9.1',
+62 silly addNameRange     '0.9.1-1',
+62 silly addNameRange     '0.9.5',
+62 silly addNameRange     '0.9.7',
+62 silly addNameRange     '1.0.0',
+62 silly addNameRange     '1.0.1',
+62 silly addNameRange     '1.1.0-1',
+62 silly addNameRange     '1.3.0',
+62 silly addNameRange     '1.4.1',
+62 silly addNameRange     '1.5.0-alpha',
+62 silly addNameRange     '1.5.0-beta',
+62 silly addNameRange     '1.5.3',
+62 silly addNameRange     '1.6.0-dev.20150722.1',
+62 silly addNameRange     '1.6.0-dev.20150723',
+62 silly addNameRange     '1.6.0-dev.20150724',
+62 silly addNameRange     '1.6.0-dev.20150725',
+62 silly addNameRange     '1.6.0-dev.20150726',
+62 silly addNameRange     '1.6.0-dev.20150727',
+62 silly addNameRange     '1.6.0-dev.20150728',
+62 silly addNameRange     '1.6.0-dev.20150729',
+62 silly addNameRange     '1.6.0-dev.20150730',
+62 silly addNameRange     '1.6.0-dev.20150731',
+62 silly addNameRange     '1.6.0-dev.20150801',
+62 silly addNameRange     '1.6.0-dev.20150802',
+62 silly addNameRange     '1.6.0-dev.20150803',
+62 silly addNameRange     '1.6.0-dev.20150804',
+62 silly addNameRange     '1.6.0-dev.20150805',
+62 silly addNameRange     '1.6.0-dev.20150806',
+62 silly addNameRange     '1.6.0-dev.20150807' ] ]
+63 verbose addNamed [ 'typescript', '1.5.3' ]
+64 verbose addNamed [ '1.5.3', '1.5.3' ]
+65 silly lockFile 962f4d64-typescript-1-5-3 typescript@1.5.3
+66 verbose lock typescript@1.5.3 /home/enje/.npm/962f4d64-typescript-1-5-3.lock
+67 silly lockFile 9f3e570d--typescript-typescript-1-5-3-tgz https://registry.npmjs.org/typescript/-/typescript-1.5.3.tgz
+68 verbose lock https://registry.npmjs.org/typescript/-/typescript-1.5.3.tgz /home/enje/.npm/9f3e570d--typescript-typescript-1-5-3-tgz.lock
+69 verbose addRemoteTarball [ 'https://registry.npmjs.org/typescript/-/typescript-1.5.3.tgz',
+69 verbose addRemoteTarball   'ce35e55f75b7a8d0ed571b503bd0a57157e523f7' ]
+70 info retry fetch attempt 1 at 20:22:55
+71 verbose fetch to= /tmp/npm-4773-3jx7A48b/registry.npmjs.org/typescript/-/typescript-1.5.3.tgz
+72 http GET https://registry.npmjs.org/typescript/-/typescript-1.5.3.tgz
+73 http 200 https://registry.npmjs.org/typescript/-/typescript-1.5.3.tgz
+74 silly lockFile 9f3e570d--typescript-typescript-1-5-3-tgz https://registry.npmjs.org/typescript/-/typescript-1.5.3.tgz
+75 silly lockFile 9f3e570d--typescript-typescript-1-5-3-tgz https://registry.npmjs.org/typescript/-/typescript-1.5.3.tgz
+76 silly lockFile 962f4d64-typescript-1-5-3 typescript@1.5.3
+77 silly lockFile 962f4d64-typescript-1-5-3 typescript@1.5.3
+78 silly lockFile 8f854bc6-typescript-1-5-3 typescript@^1.5.3
+79 silly lockFile 8f854bc6-typescript-1-5-3 typescript@^1.5.3
+80 error Error: EACCES, mkdir '/home/enje/.npm/typescript/1.5.3'
+80 error  { [Error: EACCES, mkdir '/home/enje/.npm/typescript/1.5.3']
+80 error   errno: 3,
+80 error   code: 'EACCES',
+80 error   path: '/home/enje/.npm/typescript/1.5.3',
+80 error   parent: 'node-express-boilerplate' }
+81 error Please try running this command again as root/Administrator.
+82 error System Linux 3.13.0-55-generic
+83 error command "/usr/bin/node" "/usr/bin/npm" "install"
+84 error cwd /var/nodeExpressBoilerplate
+85 error node -v v0.10.40
+86 error npm -v 1.4.28
+87 error path /home/enje/.npm/typescript/1.5.3
+88 error code EACCES
+89 error errno 3
+90 error stack Error: EACCES, mkdir '/home/enje/.npm/typescript/1.5.3'
+91 verbose exit [ 3, true ]
