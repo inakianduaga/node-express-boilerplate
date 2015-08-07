@@ -4,7 +4,7 @@
 import express = require('express');
 import exampleController = require('../controllers/example');
 
-var router = express.Router();
+let router = express.Router();
 router.get('/', exampleController.healthCheck);
 
 export = router;

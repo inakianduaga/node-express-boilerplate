@@ -14,8 +14,9 @@ Skip all the boilerplate and environment setup when creating a new express app w
 - Gulp pipeline for building/linting typescript, running tests & bumping/tagging package versions
 - Typescript support, including [tsconfig.json](tsconfig.json) (typescript 1.5+ way of [configuring build options](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json)),
 [tsd folder](./typings) w/ versioned types for the included dependencies.
-- Travis CI example, w/ github releases task, test & linting tasks. 
+- Travis CI integration, w/ github releases task, test & linting tasks. 
 - Choice of Jasmine or Mocha for testing, examples provided
+- Environment configuration through .env file
 
 ### Opinionated additions
 
