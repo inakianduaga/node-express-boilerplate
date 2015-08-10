@@ -55,6 +55,13 @@ gulp.task('testCoverage', 'Generate a test coverage report (for mocha tests only
     });
 });
 
+// Submit generated code coverage information to coveralls
+gulp.task('coveralls', 'Submit generated code coverage information to coveralls (works only under travis ci environment)', ['testCoverage'], function() {
+  gulp.src('coverage/**/lcov.info')
+      .pipe($.coveralls());
+});
+
+
 // Cleans the coverage folder
 gulp.task('cleanCoverage', false, function () {
   return $.del(['coverage']);
