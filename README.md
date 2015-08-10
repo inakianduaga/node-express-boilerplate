@@ -1,7 +1,7 @@
 node-express-boilerplate
 =====================
 
-[![Build Status][travis-image]][travis-url]
+[![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url]
 
 > A typescript nodejs express boilerplate server, w/ gulp as build system
 
@@ -14,10 +14,11 @@ Skip all the boilerplate and environment setup when creating a new express app w
 - *Gulp pipeline* for building/linting typescript, running tests & bumping/tagging package versions
 - *Typescript support*, including [tsconfig.json](tsconfig.json) (typescript 1.5+ way of [configuring build options](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json)),
 [tsd folder](./typings) w/ versioned types for the included dependencies.
-- *Travis CI integration*, w/ github releases task, test & linting tasks.
+- *Travis CI integration*, w/ github releases task, testing & linting tasks.
 - Choice of *Jasmine or Mocha* for testing, examples provided
 - *Environment configuration* through .env file
 - Optional *dockerized container* so you don't need to install anything locally (except docker :))
+- Test coverage reporting (& submission to coveralls)
 
 ### Opinionated additions
 
@@ -30,7 +31,7 @@ for better structuring bigger applications.
 
 ### Build system
 
-Several gulp tasks are provided:
+Several gulp tasks are provided, which are described by running `gulp help`:
 
 - typescript linting/compiling tasks (watch/watchAndServe/lint/tdd)
 - server application + autorestart it when code changes (through [nodemon](https://www.npmjs.com/package/nodemon))
@@ -54,7 +55,7 @@ You can use the included Dockerfile to build an image that provides node and npm
 1. Build the docker image, w/ some tag: `docker build -t node-express-boilerplate`
 2. Install npm dependencies if starting from scratch
   `docker run -t --rm -v /absolute/path/to/this/folder:/app --entrypoint="npm" node-express-boilerplate install`.
-  
+
   You can also replace *install* by *ANY_NPM_COMMMAND* in the above
 3. Run any gulp task from the project:
   `docker run -t --rm -v /absolute/path/to/this/folder:/app node-express-boilerplate <GULP_TASK_HERE>`
@@ -76,3 +77,5 @@ during development to get hot code-reloading/test running when you modify your c
 [travis-url]: https://travis-ci.org/inakianduaga/node-express-boilerplate
 [travis-image]: https://travis-ci.org/inakianduaga/node-express-boilerplate.svg?branch=master
 
+[coveralls-url]: https://coveralls.io/r/inakianduaga/node-express-boilerplate
+[coveralls-image]: https://coveralls.io/repos/inakianduaga/node-express-boilerplate/badge.png
