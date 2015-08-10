@@ -3,4 +3,5 @@ node_modules
 .settings
 dist
 tmp
+coverage
 src/.env
