@@ -2,7 +2,7 @@
 
 var gulp = require('gulp'),
   $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'run-sequence', 'del']
+    pattern: ['gulp-*', 'q', 'run-sequence', 'del']
   }),
   environment = require('./lib/environment.js'),
   Jasmine = require('jasmine'),
