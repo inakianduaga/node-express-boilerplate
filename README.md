@@ -77,5 +77,5 @@ during development to get hot code-reloading/test running when you modify your c
 [travis-url]: https://travis-ci.org/inakianduaga/node-express-boilerplate
 [travis-image]: https://travis-ci.org/inakianduaga/node-express-boilerplate.svg?branch=master
 
-[coveralls-url]: https://coveralls.io/r/inakianduaga/node-express-boilerplate
-[coveralls-image]: https://coveralls.io/repos/inakianduaga/node-express-boilerplate/badge.png
+[coveralls-url]: https://coveralls.io/github/inakianduaga/node-express-boilerplate?branch=master
+[coveralls-image]: https://coveralls.io/repos/inakianduaga/node-express-boilerplate/badge.svg?branch=master&service=github
