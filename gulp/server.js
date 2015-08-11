@@ -2,7 +2,7 @@
 
 var gulp = require('gulp'),
     $ = require('gulp-load-plugins')({
-        pattern: ['gulp-*']
+        pattern: ['gulp-*', 'pm2']
     }),
     environment = require('./lib/environment.js');
 
@@ -13,7 +13,7 @@ gulp.task('serve', 'Launch the server on development mode, autoreloads it when t
     ext: 'jade js', //reload when any of these file extensions changes
     ignore: [],
     env : {
-      'NODE_ENV': 'development'      
+      'NODE_ENV': 'development'
     }
   };
 
@@ -33,4 +33,25 @@ gulp.task('serve', 'Launch the server on development mode, autoreloads it when t
     'port': 'The port # the server should listen to. Defaults to value specified in .env file under PORT, or 3000 if .env not present'
   }
 });
+
+gulp.task('serveCluster', 'Launches clusterized server (for production)', ['build'], function () {
+  $.pm2.connect(function() {
+    $.pm2.start({
+      script    : './dist/server.js',                                     // Script to be run
+      exec_mode : environment.get('exec_mode', 'cluster'),                // Allow your app to be clustered
+      instances : environment.get('instances', 4),                        // Optional: Scale your app by 4
+      max_memory_restart: environment.get('max_memory_restart', '100M'),  // Optional: Restart your app if it reaches 100Mo
+    }, function(err, apps) {
+      $.pm2.disconnect();
+    });
+  });
+
+}, {
+  options: {
+    'exec_mode': 'PM2 exec mode',
+    'instances': 'PM2 # instances in cluster',
+    'max_memory_restart' : 'PM2 Restart your app if it reaches this'
+  }
+});
+
 

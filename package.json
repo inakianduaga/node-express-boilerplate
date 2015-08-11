@@ -30,7 +30,8 @@
     "morgan": "^1.5.3",
     "jade": "^1.9.2",
     "debug": "^2.2.0",
-    "dotenv": "^1.1.0"
+    "dotenv": "^1.1.0",
+    "pm2" : "^0.14.6"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
