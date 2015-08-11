@@ -19,6 +19,7 @@ Skip all the boilerplate and environment setup when creating a new express app w
 - *Environment configuration* through .env file
 - Optional *dockerized container* so you don't need to install anything locally (except docker :))
 - Test coverage reporting (& submission to coveralls)
+- PM2 integration to run a server cluster, both as local installation or on a dockerized container
 
 ### Opinionated additions
 
@@ -56,7 +57,7 @@ You can use the included Dockerfile to build an image that provides node and npm
 2. Install npm dependencies if starting from scratch
   `docker run -t --rm -v /absolute/path/to/this/folder:/app --entrypoint="npm" node-express-boilerplate install`.
 
-  You can also replace *install* by *ANY_NPM_COMMMAND* in the above
+  You can also replace `install` by `any_npm_command` in the above
 3. Run any gulp task from the project:
   `docker run -t --rm -v /absolute/path/to/this/folder:/app node-express-boilerplate <GULP_TASK_HERE>`
 
@@ -73,6 +74,34 @@ Remember to map the port from the host to the container to be able to access the
 
 - Use the `gulp watchAndServe` task (or `docker run -t --rm -p 3000:3000 -v /absolute/path/to/this/folder:/app node-express-boilerplate watchAndServe --port=3000` when using the dockerized container)
 during development to get hot code-reloading/test running when you modify your code
+
+## Running production server:
+
+To make use of all your server resources, it is recommended to run the server in cluster mode (via the [PM2](https://www.npmjs.com/package/pm2) package)
+
+#### Running on hosts local installation:
+
+Use the `gulp serveCluster` task. You can monitor the cluster and issue commands by running pm2 command (for this you might want to install pm2 globally, `npm install pm2 -g`)
+
+#### Running through docker container
+
+The container image already contains PM2 globally. In order to launch the server, we need to use the wrapper script `serveCluster.sh`. It can be called by running
+
+`docker run --rm -v /absolute/path/to/this/folder:/app -p 3000:3000 --name myRunningServer --entrypoint="bash"  node-express-boilerplate ./serveCluster.sh <PM2 OPTIONS HERE>`
+
+where `<PM2 OPTIONS HERE>` can be any number of CLI options from the PM2 package, such as `--instances=4`, etc.
+
+**Issuing commands to the cluster**
+
+You can interact with the cluster running inside the container via PM2 using the following command
+
+`docker exec myRunningServer pm2 <OPTIONS>`,
+
+such as for example
+
+`docker exec myRunningServer pm2 reload` or
+`docker exec myRunningServer pm2 show 0`
+
 
 [travis-url]: https://travis-ci.org/inakianduaga/node-express-boilerplate
 [travis-image]: https://travis-ci.org/inakianduaga/node-express-boilerplate.svg?branch=master

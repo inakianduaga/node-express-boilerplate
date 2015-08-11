@@ -15,10 +15,6 @@ module Services.ErrorHandler {
    */
   let handler = (err, req, res, next, includeStackTrace) => {
 
-    if (typeof includeStackTrace === 'undefined') {
-      includeStackTrace = false;
-    }
-
     res.status(res.statusCode || 500);
     res.render('error', {
       message: err.message,

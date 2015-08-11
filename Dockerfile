@@ -11,6 +11,9 @@ RUN npm install npm -g
 # Install tsd typescript definitions manager
 RUN npm install tsd -g
 
+# Install pm2 globally
+RUN npm install pm2 -g
+
 WORKDIR /app
 VOLUME /app
 
