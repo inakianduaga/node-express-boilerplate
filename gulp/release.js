@@ -63,8 +63,8 @@ gulp.task('release', 'Bumps package version, tags release & pushes the current b
 
 gulp.task('package', 'Builds and zips the application', ['build'], function () {
 
-  return gulp.src(['dist/**/*'])
-
+  return gulp.src(['**/*', '!node_modules','!node_modules/**/*','!src','!src/**/*'])
+  
     //Tar all files into single
     .pipe($.tar('release.tar'))
 
