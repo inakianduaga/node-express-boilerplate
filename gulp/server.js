@@ -10,7 +10,7 @@ gulp.task('serve', 'Launch the server on development mode, autoreloads it when t
 
   var nodemonConfiguration = {
     script: './dist/server.js',
-    ext: 'jade js', //reload when any of these file extensions changes
+    ext: 'jade ts', //reload when any of these file extensions changes
     ignore: [],
     env : {
       'NODE_ENV': 'development'
