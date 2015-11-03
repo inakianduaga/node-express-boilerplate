@@ -1,15 +1,15 @@
 'use strict';
 
 //Dependencies
-var gulp = require('gulp'),
+let gulp = require('gulp'),
   $ = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'concurrent-transform', 'del', 'q']
   });
   $.fs = require('fs');
-  $.environment = require('./lib/environment.js');  
+  $.environment = require('./lib/environment.js');
 
 //CLI parameters
-var VERSION_TYPE = $.environment.get('version', 'minor');
+const VERSION_TYPE = $.environment.get('version', 'minor');
 
 /**
  * Reads the package.json file
@@ -20,31 +20,28 @@ function getPackageJson() {
   return JSON.parse($.fs.readFileSync('./package.json', 'utf-8'));
 }
 
-gulp.task('bump', false, ['lint', 'test'], function() {
-
-  return gulp.src(['./package.json', './bower.json'])
+gulp.task('bump', false, ['lint', 'test'], () =>
+  gulp.src(['./package.json', './bower.json'])
     .pipe($.bump({ type: VERSION_TYPE}))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./'))
+);
 
-});
+gulp.task('commit', false, ['bump'], () => {
 
-gulp.task('commit', false, ['bump'], function() {
-
-  var pkg = getPackageJson();
-  var v = 'v' + pkg.version;
-  var message = 'Release ' + v;
+  let pkg = getPackageJson();
+  let v = `v${pkg.version}`;
+  let message = `Release ${v}`;
 
   return gulp.src('./')
     .pipe($.git.add())
     .pipe($.git.commit(message));
-
 });
 
-gulp.task('release', 'Bumps package version, tags release & pushes the current branch to the origin repo', ['commit'], function () {
+gulp.task('release', 'Bumps package version, tags release & pushes the current branch to the origin repo', ['commit'], () => {
 
-  var pkg = getPackageJson();
-  var v = 'v' + pkg.version;
-  var message = 'Release ' + v;
+  let pkg = getPackageJson();
+  let v = `v${pkg.version}`;
+  let message = `Release ${v}`;
 
   $.git.tag(v, message, function(err){
     if (err) throw err;
@@ -61,10 +58,10 @@ gulp.task('release', 'Bumps package version, tags release & pushes the current b
 });
 
 
-gulp.task('package', 'Builds and zips the application', ['build'], function () {
+gulp.task('package', 'Builds and zips the application', ['build'], () => {
 
   return gulp.src(['**/*', '!node_modules','!node_modules/**/*','!src','!src/**/*'])
-  
+
     //Tar all files into single
     .pipe($.tar('release.tar'))
 

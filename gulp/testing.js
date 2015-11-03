@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('gulp'),
+let gulp = require('gulp'),
   $ = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'q', 'run-sequence', 'del']
   }),
@@ -12,8 +12,8 @@ var gulp = require('gulp'),
 // Configure Jasmine
 jasmine.loadConfigFile('src/spec/support/jasmine.json');
 
-gulp.task('jasmineTests', false, ['build'], function () {
-  var deferred = $.q.defer();
+gulp.task('jasmineTests', false, ['build'], () => {
+  let deferred = $.q.defer();
 
   jasmine.onComplete(function (err) {
     return deferred.resolve();
@@ -26,9 +26,9 @@ gulp.task('jasmineTests', false, ['build'], function () {
 
 
 // Mocha tests
-gulp.task('mochaTests', false, ['build'], function () {
+gulp.task('mochaTests', false, ['build'], () => {
 
-  var reporter = environment.get('reporter', 'progress');
+  let reporter = environment.get('reporter', 'progress');
 
   return gulp.src('dist/spec/routes/exampleMochaSpec.js', {read: false})
       // gulp-mocha needs filepaths so you can't have any plugins before it
@@ -37,9 +37,9 @@ gulp.task('mochaTests', false, ['build'], function () {
 });
 
 // Code coverage report
-gulp.task('testCoverage', 'Generate a test coverage report (for mocha tests only)', function () {
-  return $.runSequence(['build', 'cleanCoverage'],'copyNonTs',function () {
-      return gulp.src('dist/**/*.js')
+gulp.task('testCoverage', 'Generate a test coverage report (for mocha tests only)', () =>
+  $.runSequence(['build', 'cleanCoverage'], 'copyNonTs', () =>
+    gulp.src('dist/**/*.js')
         .pipe($.istanbul())
         .pipe($.istanbul.hookRequire())
         .on('finish', function () {
@@ -51,21 +51,19 @@ gulp.task('testCoverage', 'Generate a test coverage report (for mocha tests only
               reportOpts: { dir: './coverage'}
               })
             );
-        });
-    });
-});
+        })
+    )
+);
 
 // Submit generated code coverage information to coveralls
-gulp.task('coveralls', 'Submit generated code coverage information to coveralls (works only under travis ci environment)', ['testCoverage'], function() {
+gulp.task('coveralls', 'Submit generated code coverage information to coveralls (works only under travis ci environment)', ['testCoverage'], () => {
   gulp.src('coverage/**/lcov.info')
       .pipe($.coveralls());
 });
 
 
 // Cleans the coverage folder
-gulp.task('cleanCoverage', false, function () {
-  return $.del(['coverage']);
-});
+gulp.task('cleanCoverage', false, () => $.del(['coverage']));
 
 // Main test tasks, choose between mocha or jasmine (or keep both)
 gulp.task('test', 'Run unit tests (once)', ['jasmineTests','mochaTests']);
