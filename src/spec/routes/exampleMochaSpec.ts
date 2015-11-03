@@ -1,5 +1,3 @@
-/// <reference path="../../../typings/tsd.d.ts" />
-
 import request = require('supertest');
 import app = require('./../../app');
 
