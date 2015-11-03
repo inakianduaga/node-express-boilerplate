@@ -2,11 +2,11 @@
 # Run/build server inside docker nodejs container
 #
 
-FROM node:0.10.40
+FROM node:5
 MAINTAINER Inaki Anduaga <inaki@inakianduaga.com>
 
 # Update npm to the latest version
-RUN npm install npm -g
+#RUN npm install npm -g
 
 # Install tsd typescript definitions manager
 RUN npm install tsd -g
