@@ -24,3 +24,6 @@ CMD ["--help"]
 
 # Disable gulp-notify notifications
 ENV DISABLE_NOTIFIER=true
+
+# enable color in terminal
+ENV TERM=xterm-256color
