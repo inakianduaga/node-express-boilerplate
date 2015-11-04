@@ -3,7 +3,7 @@ node-express-boilerplate
 
 [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url]
 
-> A typescript nodejs express boilerplate server, w/ gulp as build system
+> A typescript nodejs express boilerplate server, w/ gulp as build system, includes release tooling, testing helpers and CI integration.
 
 ## Why
 
@@ -11,15 +11,15 @@ Skip all the boilerplate and environment setup when creating a new express app w
 
 ## Features
 
-- *Gulp pipeline* for building/linting typescript, running tests & bumping/tagging package versions
-- *Typescript support*, including [tsconfig.json](tsconfig.json) (typescript 1.6+ way of [configuring build options](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json)),
+- **Gulp pipeline** for building/linting typescript, running tests & bumping/tagging package versions. Bonus: Use ES6 features in gulp build itself.
+- **Typescript support**, including [tsconfig.json](tsconfig.json) (typescript 1.6+ way of [configuring build options](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json)),
 [tsd folder](./typings) w/ versioned types for the included dependencies.
-- *Travis CI integration*, w/ github releases task, testing & linting tasks.
-- Choice of *Jasmine or Mocha* for testing, examples provided
-- *Environment configuration* through .env file
-- Optional *dockerized container* so you don't need to install anything locally (except docker :))
-- Test coverage reporting (& submission to coveralls)
-- PM2 integration to run a server cluster, both as local installation or on a dockerized container
+- **Travis CI integration**, w/ github release, testing & linting tasks.
+- Choice of **Jasmine or Mocha** for testing, examples provided
+- **Environment configuration** through `.env` file
+- Optional **dockerized container** so you don't need to install anything locally (except docker :))
+- **Test coverage reporting** (& submission to coveralls)
+- **PM2 integration** to run a server cluster, both as local installation or on a dockerized container
 
 ### Opinionated additions
 
