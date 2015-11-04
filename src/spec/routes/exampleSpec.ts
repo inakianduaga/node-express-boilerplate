@@ -5,7 +5,6 @@
 
 import * as request from 'supertest';
 import app from './../../app';
-import { Request, Response } from 'express';
 
 describe('Jasmine: Example routes', () => {
 
