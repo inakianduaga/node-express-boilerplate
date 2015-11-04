@@ -1,20 +1,16 @@
-'use strict';
+/// <reference path="../../typings/tsd.d.ts" />
+import { Request, Response } from 'express';
 
 // Error handler service
 
-module Services.ErrorHandler {
+module ErrorHandler {
+
+  'use strict';
 
   /**
    * Generates a 500 response
-   *
-   * @param err
-   * @param req
-   * @param res
-   * @param next
-   * @param {Boolean=} includeStackTrace Whether to include a stack trace in the generated response
    */
-  let handler = (err, req, res, next, includeStackTrace) => {
-
+  let handler = (err: Error, req: Request, res: Response, next: Function, includeStackTrace: boolean) => {
     res.status(res.statusCode || 500);
     res.render('error', {
       message: err.message,
@@ -24,28 +20,18 @@ module Services.ErrorHandler {
 
   /**
    * 500 error development response
-   *
-   * @param err
-   * @param req
-   * @param res
-   * @param next
    */
-  export function development (err, req, res, next) {
+  export function development (err: Error, req: Request, res: Response, next: Function) {
     return handler(err, req, res, next, true);
   };
 
   /**
    * 500 error production response
-   *
-   * @param err
-   * @param req
-   * @param res
-   * @param next
    */
-  export function production (err, req, res, next) {
+  export function production (err: Error, req: Request, res: Response, next: Function) {
     return handler(err, req, res, next, false);
   };
 
 }
 
-export = Services.ErrorHandler;
+export = ErrorHandler;

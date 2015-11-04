@@ -3,8 +3,8 @@
 // Using Jasmine together w/ supertest
 // https://github.com/jasmine/jasmine-npm/issues/31
 
-import request = require('supertest');
-import app = require('./../../app');
+import * as request from 'supertest';
+import app from './../../app';
 
 describe('Jasmine: Example routes', () => {
 

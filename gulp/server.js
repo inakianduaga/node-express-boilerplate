@@ -1,16 +1,16 @@
 'use strict';
 
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     $ = require('gulp-load-plugins')({
         pattern: ['gulp-*', 'pm2']
     }),
     environment = require('./lib/environment.js');
 
-gulp.task('serve', 'Launch the server on development mode, autoreloads it when there are code changes', ['build'], function () {
+gulp.task('serve', 'Launch the server on development mode, autoreloads it when there are code changes', ['build'], () => {
 
   var nodemonConfiguration = {
     script: './dist/server.js',
-    ext: 'jade js', //reload when any of these file extensions changes
+    ext: 'jade ts', //reload when any of these file extensions changes
     ignore: [],
     env : {
       'NODE_ENV': 'development'
@@ -34,14 +34,14 @@ gulp.task('serve', 'Launch the server on development mode, autoreloads it when t
   }
 });
 
-gulp.task('serveCluster', 'Launches clusterized server (for production)', ['build'], function () {
-  $.pm2.connect(function() {
+gulp.task('serveCluster', 'Launches clusterized server (for production). CURRENTLY FAILING, use serverCluser.sh bash CLI', ['build'], () => {
+  $.pm2.connect(() => {
     $.pm2.start({
       script    : './dist/server.js',                                     // Script to be run
       exec_mode : environment.get('exec_mode', 'cluster'),                // Allow your app to be clustered
       instances : environment.get('instances', 4),                        // Optional: Scale your app by 4
       max_memory_restart: environment.get('max_memory_restart', '100M'),  // Optional: Restart your app if it reaches 100Mo
-    }, function(err, apps) {
+    }, (err, apps) => {
       $.pm2.disconnect();
     });
   });
