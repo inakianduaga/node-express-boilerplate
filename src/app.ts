@@ -3,18 +3,18 @@
 'use strict';
 
 // Include dependencies
-import express = require('express');
-import path = require('path');
-import logger = require('morgan');
-import favicon = require('serve-favicon');
-import cookieParser = require('cookie-parser');
-import bodyParser = require('body-parser');
+import * as express from 'express';
+import * as path from 'path';
+import * as logger from 'morgan';
+import * as favicon from 'serve-favicon';
+import * as cookieParser from 'cookie-parser';
+import * as bodyParser from 'body-parser';
 
 // Modular Route definitions
-import exampleRoute = require('./routes/example');
+import * as exampleRoute from './routes/example';
 
 // Error handler service
-import errorHandler = require('./services/errorHandler');
+import { development as DevelopmentErrorHandler, production as ProductionErrorHandler } from './services/errorHandler';
 
 // Main app
 const app = express();
@@ -34,8 +34,8 @@ app.use(cookieParser());
 app.use(exampleRoute);
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
-    var err = new Error('Not Found');
+app.use((req: express.Request, res: express.Response, next: Function) => {
+    let err = new Error('Not Found');
     res.status(404);
     console.log('catching 404 error');
     return next(err);
@@ -46,9 +46,9 @@ app.use((req, res, next) => {
 // development error handler - will print stacktrace
 // production error handler - no stacktraces leaked to user
 if (app.get('env') === 'development') {
-    app.use(errorHandler.development);
+    app.use(DevelopmentErrorHandler);
 } else {
-  app.use(errorHandler.production);
+  app.use(ProductionErrorHandler);
 }
 
-export = app;
+export default app;

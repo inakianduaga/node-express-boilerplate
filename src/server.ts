@@ -8,8 +8,8 @@ dotenv.load({
 });
 
 // Boot server
-import debug = require('debug');
-import app = require('./app');
+import * as debug from 'debug';
+import app from './app';
 
 const port = process.env.PORT || 3000;
 app.set('port', port);

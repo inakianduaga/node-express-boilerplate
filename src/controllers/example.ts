@@ -1,17 +1,21 @@
-'use strict';
+/// <reference path="../../typings/tsd.d.ts" />
+
+import { Request, Response } from 'express';
 
 /**
  * Example controller that provides a healthcheck endpoint
  */
-module Controllers.Example {
+module Example {
+
+  'use strict';
 
   /*
    * Return an empty 200 response
    */
-  export function healthCheck (req, res) {
+  export function healthCheck (req: Request, res: Response) {
     res.end();
   }
 
 }
 
-export = Controllers.Example;
+export = Example;

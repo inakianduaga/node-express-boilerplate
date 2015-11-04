@@ -1,5 +1,5 @@
-import request = require('supertest');
-import app = require('./../../app');
+import * as request from 'supertest';
+import app from './../../app';
 
 describe('Mocha: Example routes', () => {
 
