@@ -38,7 +38,7 @@ gulp.task('copyNonTs', false, () =>
 gulp.task('lint', 'Runs a typescript linter on the application code', () =>
   gulp.src(config.tsLinter.sources)
     .pipe($.tslint(config.tsLinter.options))
-    .pipe($.tslint.report(config.tsLinter.reporter))
+    .pipe($.tslint.report())
 );
 
 /**

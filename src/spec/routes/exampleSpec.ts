@@ -1,5 +1,3 @@
-/// <reference path="../../../typings/tsd.d.ts" />
-
 // Using Jasmine together w/ supertest
 // https://github.com/jasmine/jasmine-npm/issues/31
 

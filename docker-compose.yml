@@ -1,0 +1,10 @@
+version: '2'
+services:
+  node-express-boilerplate:
+    image: "inakianduaga/node-express-boilerblate"
+    build:
+      context: ./
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
