@@ -1,7 +1,7 @@
 version: '2'
 services:
   node-express-boilerplate:
-    image: "inakianduaga/node-express-boilerblate"
+    image: "inakianduaga/node-express-boilerplate"
     build:
       context: ./
     ports:
