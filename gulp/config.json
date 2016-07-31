@@ -1,21 +1,18 @@
 {
   "tsLinter" : {
     "options" : {
-      "configuration": {},
-      "rulesDirectory": null,
-      "emitError": true,
-      "reportLimit": 0
+      "formatter": "prose"
     },
     "sources": [
+      "./src/*.ts",
       "./src/**/*.ts",
       "./gulp/**/*.ts"
-    ],
-    "reporter" : "prose"
+    ]
   },
   "tsCompiler" : {
     "options" : {
-      
+
     }
   }
-   
+
 }

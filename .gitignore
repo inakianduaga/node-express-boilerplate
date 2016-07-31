@@ -5,4 +5,6 @@ node_modules
 dist
 tmp
 coverage
+typings/*
+!typings/.gitkeep
 src/.env

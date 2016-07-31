@@ -13,7 +13,7 @@ Skip all the boilerplate and environment setup when creating a new express app w
 
 - **Gulp pipeline** for building/linting typescript, running tests & bumping/tagging package versions. Bonus: Use ES6 features in gulp build itself.
 - **Typescript support**, including [tsconfig.json](tsconfig.json) (typescript 1.6+ way of [configuring build options](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json)),
-[tsd folder](./typings) w/ versioned types for the included dependencies.
+[typings folder](./typings) w/ versioned types for the included dependencies.
 - **Travis CI integration**, w/ github release, testing & linting tasks.
 - Choice of **Jasmine or Mocha** for testing, examples provided
 - **Environment configuration** through `.env` file
@@ -46,33 +46,29 @@ You can either run the project installing dependencies locally, or run a dockeri
 
 - Node must be installed on the system
 - Run `npm install` from the root folder to install all required dev/build dependencies
-- (Optionally) Install *Typescript definitions manager (tsd)* `npm install tsd -g` globally to update typescript definitions when desired
+- (Optionally) Install *Typings* `npm install typings -g` globally to update typescript definitions when desired
 
 ### Docker
 
-You can use the included Dockerfile to build an image that provides node and npm installed by default, and points
- to the `gulp` command as the entrypoint. You can follow these steps
+Package includes prepared Dockerfile that provides image with and node and npm installed by default, and points to the `gulp` command as the entrypoint, and also preconfigured docker-compose.yml. You can use it with following commands:
 
-1. Build the docker image, w/ some tag: `docker build -t node-express-boilerplate`
-2. Install npm dependencies if starting from scratch
-  `docker run -t --rm -v /absolute/path/to/this/folder:/app --entrypoint="npm" node-express-boilerplate install`.
+1. Install npm dependencies if starting from scratch
+  `docker-compose run --entrypoint="npm" node-express-boilerplate install`.  
 
   You can also replace `install` by `any_npm_command` in the above
-3. Run any gulp task from the project:
-  `docker run -t --rm -v /absolute/path/to/this/folder:/app node-express-boilerplate <GULP_TASK_HERE>`
+2. Run any gulp task from the project:
+  `docker-compose run node-express-boilerplate <GULP_TASK_HERE>`
 
-The docker container includes the *tsd* node package pre-installed, which you can run through
-  `docker run -t --rm -v /absolute/path/to/this/folder:/app --entrypoint="tsd" node-express-boilerplate <TSD_COMMAND_HERE>`
+The docker container includes the *typings* node package pre-installed, which you can run through
+  `docker-compose run --entrypoint="typings" node-express-boilerplate <TYPINGS_COMMAND_HERE>`.
 
 ##### Launching server on docker
 
-Remember to map the port from the host to the container to be able to access the server.
-
-`docker run -t --rm -p 3000:3000 -v /absolute/path/to/this/folder:/app node-express-boilerplate serve --port=3000`
+  `docker-compose run --service-ports node-express-boilerplate serve`
 
 ## Developing
 
-- Use the `gulp watchAndServe` task (or `docker run -t --rm -p 3000:3000 -v /absolute/path/to/this/folder:/app node-express-boilerplate watchAndServe --port=3000` when using the dockerized container)
+- Use the `gulp watchAndServe` task (or `docker-compose run --service-ports node-express-boilerplate watchAndServe --port=3000` when using the dockerized container)
 during development to get hot code-reloading/test running when you modify your code
 
 ## Running production server:
@@ -87,7 +83,7 @@ Use the `gulp serveCluster` task. You can monitor the cluster and issue commands
 
 The container image already contains PM2 globally. In order to launch the server, we need to use the wrapper script `serveCluster.sh`. It can be called by running
 
-`docker run --rm -v /absolute/path/to/this/folder:/app -p 3000:3000 --name myRunningServer --entrypoint="bash"  node-express-boilerplate ./serveCluster.sh <PM2 OPTIONS HERE>`
+`docker run --rm -v /absolute/path/to/this/folder:/app -p 3000:3000 --name myRunningServer --entrypoint="bash"  inakianduaga/node-express-boilerplate ./serveCluster.sh <PM2 OPTIONS HERE>`
 
 where `<PM2 OPTIONS HERE>` can be any number of CLI options from the PM2 package, such as `--instances=4`, etc.
 

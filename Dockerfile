@@ -9,10 +9,10 @@ MAINTAINER Inaki Anduaga <inaki@inakianduaga.com>
 #RUN npm install npm -g
 
 # Install tsd typescript definitions manager
-RUN npm install tsd -g
+RUN npm install typings@1.3.2 -g
 
 # Install pm2 globally
-RUN npm install pm2 -g
+RUN npm install pm2@1.1.3 -g
 
 WORKDIR /app
 VOLUME /app

@@ -1,5 +1,6 @@
 'use strict';
 
+
 let gulp = require('gulp'),
   $ = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'q', 'run-sequence', 'del']
@@ -12,7 +13,7 @@ let gulp = require('gulp'),
 // Configure Jasmine
 jasmine.loadConfigFile('src/spec/support/jasmine.json');
 
-gulp.task('jasmineTests', false, ['build'], () => {
+gulp.task('jasmineTests', false, () => {
   let deferred = $.q.defer();
 
   jasmine.onComplete(function (err) {
@@ -26,7 +27,7 @@ gulp.task('jasmineTests', false, ['build'], () => {
 
 
 // Mocha tests
-gulp.task('mochaTests', false, ['build'], () => {
+gulp.task('mochaTests', false, () => {
 
   let reporter = environment.get('reporter', 'progress');
 
@@ -66,5 +67,7 @@ gulp.task('coveralls', 'Submit generated code coverage information to coveralls 
 gulp.task('cleanCoverage', false, () => $.del(['coverage']));
 
 // Main test tasks, choose between mocha or jasmine (or keep both)
-gulp.task('test', 'Run unit tests (once)', ['jasmineTests','mochaTests']);
-
+gulp.task('test', 'Run unit tests (once)', ['build'], () => {
+  gulp.start('jasmineTests','mochaTests');
+});
+gulp.task('testWithoutBuild', 'Run unit tests(once) without building application', ['jasmineTests','mochaTests'])

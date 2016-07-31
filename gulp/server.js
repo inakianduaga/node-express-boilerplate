@@ -10,7 +10,8 @@ gulp.task('serve', 'Launch the server on development mode, autoreloads it when t
 
   var nodemonConfiguration = {
     script: './dist/server.js',
-    ext: 'jade ts', //reload when any of these file extensions changes
+    watch: './dist',
+    ext: 'jade js',
     ignore: [],
     env : {
       'NODE_ENV': 'development'
@@ -53,5 +54,3 @@ gulp.task('serveCluster', 'Launches clusterized server (for production). CURRENT
     'max_memory_restart' : 'PM2 Restart your app if it reaches this'
   }
 });
-
-

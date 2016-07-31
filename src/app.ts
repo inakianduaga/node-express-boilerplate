@@ -1,5 +1,3 @@
-/// <reference path="../typings/tsd.d.ts" />
-
 'use strict';
 
 // Include dependencies
@@ -46,7 +44,7 @@ app.use((req: express.Request, res: express.Response, next: Function) => {
 // development error handler - will print stacktrace
 // production error handler - no stacktraces leaked to user
 if (app.get('env') === 'development') {
-    app.use(DevelopmentErrorHandler);
+  app.use(DevelopmentErrorHandler);
 } else {
   app.use(ProductionErrorHandler);
 }
